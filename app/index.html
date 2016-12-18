@@ -29,26 +29,19 @@
     <meta name="msapplication-TileColor" content="#2F3BA2">
 
     <!-- Color the status bar on mobile devices -->
-    <meta name="theme-color" content="#2F3BA2">
+    <meta name="theme-color" content="black">
 
-    <!-- SEO: If your mobile URL is different from the desktop URL, add a canonical link to the desktop page https://developers.google.com/webmasters/smartphone-sites/feature-phones -->
-    <!--
-    <link rel="canonical" href="http://www.example.com/">
-    -->
-
-    <!-- Material Design Lite page styles:
-    You can choose other color schemes from the CDN, more info here http://www.getmdl.io/customize/index.html
-    Format: material.color1-color2.min.css, some examples:
-    material.red-teal.min.css
-    material.blue-orange.min.css
-    material.purple-indigo.min.css
-    -->
     <link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.0.6/material.indigo-pink.min.css">
 
-    <!-- Material Design icons -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link href="open-iconic/font/css/open-iconic.css" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display|Source+Sans+Pro" rel="stylesheet">
 
     <!-- Your styles -->
+
+    <link rel="stylesheet/less" type="text/css" href="styles/styles.less" />
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/less.js/2.7.1/less.min.js"></script>
+
     <link rel="stylesheet" href="styles/main.css">
   </head>
   <body class="mdl-demo mdl-color--grey-100 mdl-color-text--grey-700 mdl-base">
@@ -64,11 +57,8 @@
 
 
         <div class="mdl-layout__tab-bar mdl-js-ripple-effect mdl-color--primary-dark" class="main_wrapper" id="tabs">
-          <a href="#pon" class="mdl-layout__tab is-active">Ponedeljek</a>
-          <a href="#tor" class="mdl-layout__tab">Torek</a>
-          <a href="#sre" class="mdl-layout__tab">Sreda</a>
-          <a href="#cet" class="mdl-layout__tab">Četrtek</a>
-          <a href="#pet" class="mdl-layout__tab">Petek</a>
+          <a href="#pon" class="mdl-layout__tab is-active">Danes</a>
+          <a href="#tor" class="mdl-layout__tab">Jutri</a>
         </div>
       </header>
       <main class="mdl-layout__content">
@@ -76,137 +66,53 @@
 
           <div class="main_wrapper">
             <div class="mdl-grid">
+
             <div class="mdl-cell mdl-cell--6-col">
               <div class="demo-card-wide mdl-card mdl-shadow--2dp">
                 <div class="mdl-card__title">
-                  <h2 class="mdl-card__title-text">Welcome</h2>
+                  <h2>Dabuda</h2>
+                  <hr></hr>
                 </div>
-                <div class="mdl-card__supporting-text">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Mauris sagittis pellentesque lacus eleifend lacinia...
-                </div>
-                <div class="mdl-card__actions mdl-card--border">
-                  <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
-                    Get Started
-                  </a>
+                <div class="meal">
+                    <h5>Ime jedi</h5>
+                    <span>Opis jedi</span>
                 </div>
                 <div class="mdl-card__menu">
                   <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
-                    <i class="material-icons">share</i>
+                    <span class="oi" data-glyph="map-marker"></span>
+                  </button>
+                  <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
+                    <span class="oi" data-glyph="fullscreen-enter" title="box" aria-hidden="true"></span>
                   </button>
                 </div>
               </div>
             </div>
+
             <div class="mdl-cell mdl-cell--6-col">
               <div class="demo-card-wide mdl-card mdl-shadow--2dp">
                 <div class="mdl-card__title">
-                  <h2 class="mdl-card__title-text">Welcome</h2>
+                  <h2>Da Bu Da</h2>
+                  <hr></hr>
                 </div>
-                <div class="mdl-card__supporting-text">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Mauris sagittis pellentesque lacus eleifend lacinia...
-                </div>
-                <div class="mdl-card__actions mdl-card--border">
-                  <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
-                    Get Started
-                  </a>
+                <div class="meal">
+                    <h5>Ime jedi</h5>
+                    <span>Opis jedi</span>
                 </div>
                 <div class="mdl-card__menu">
                   <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
-                    <i class="material-icons">share</i>
+                    <span class="oi" data-glyph="map-marker"></span>
+                  </button>
+                  <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
+                    <span class="oi" data-glyph="fullscreen-enter" title="box" aria-hidden="true"></span>
                   </button>
                 </div>
               </div>
             </div>
+
+
           </div>
-            <div class="mdl-grid">
-            <div class="mdl-cell mdl-cell--6-col">
-              <div class="demo-card-wide mdl-card mdl-shadow--2dp">
-                <div class="mdl-card__title">
-                  <h2 class="mdl-card__title-text">Welcome</h2>
-                </div>
-                <div class="mdl-card__supporting-text">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Mauris sagittis pellentesque lacus eleifend lacinia...
-                </div>
-                <div class="mdl-card__actions mdl-card--border">
-                  <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
-                    Get Started
-                  </a>
-                </div>
-                <div class="mdl-card__menu">
-                  <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
-                    <i class="material-icons">share</i>
-                  </button>
-                </div>
-              </div>
-            </div>
-            <div class="mdl-cell mdl-cell--6-col">
-              <div class="demo-card-wide mdl-card mdl-shadow--2dp">
-                <div class="mdl-card__title">
-                  <h2 class="mdl-card__title-text">Welcome</h2>
-                </div>
-                <div class="mdl-card__supporting-text">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Mauris sagittis pellentesque lacus eleifend lacinia...
-                </div>
-                <div class="mdl-card__actions mdl-card--border">
-                  <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
-                    Get Started
-                  </a>
-                </div>
-                <div class="mdl-card__menu">
-                  <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
-                    <i class="material-icons">share</i>
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-            <div class="mdl-grid">
-            <div class="mdl-cell mdl-cell--6-col">
-              <div class="demo-card-wide mdl-card mdl-shadow--2dp">
-                <div class="mdl-card__title">
-                  <h2 class="mdl-card__title-text">Welcome</h2>
-                </div>
-                <div class="mdl-card__supporting-text">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Mauris sagittis pellentesque lacus eleifend lacinia...
-                </div>
-                <div class="mdl-card__actions mdl-card--border">
-                  <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
-                    Get Started
-                  </a>
-                </div>
-                <div class="mdl-card__menu">
-                  <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
-                    <i class="material-icons">share</i>
-                  </button>
-                </div>
-              </div>
-            </div>
-            <div class="mdl-cell mdl-cell--6-col">
-              <div class="demo-card-wide mdl-card mdl-shadow--2dp">
-                <div class="mdl-card__title">
-                  <h2 class="mdl-card__title-text">Welcome</h2>
-                </div>
-                <div class="mdl-card__supporting-text">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Mauris sagittis pellentesque lacus eleifend lacinia...
-                </div>
-                <div class="mdl-card__actions mdl-card--border">
-                  <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
-                    Get Started
-                  </a>
-                </div>
-                <div class="mdl-card__menu">
-                  <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
-                    <i class="material-icons">share</i>
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
+
+
           </div>
 
         </div>

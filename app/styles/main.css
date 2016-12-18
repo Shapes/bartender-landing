@@ -213,7 +213,15 @@ html, body {
 }
 
 #tabs{
-  background-color: black !important;
+  background-color: white !important;
+}
+
+#tabs a{
+  color: #f3f3f3;
+}
+
+#tabs .is-active{
+  color: black;
 }
 
 #cover{
@@ -237,4 +245,39 @@ html, body {
 
 .mdl-card__title h2{
   text-align: center;
+}
+
+body{
+  font-family: 'Source Code Pro', serif;
+}
+
+h2{
+  width: 100%;
+  font-size: 32px;
+  line-height: 32px;
+  margin: 0;
+  text-align: center;
+  font-family: 'Playfair Display', serif;
+}
+
+
+.demo-card-wide{
+  border-radius: 0;
+  background: #FFFFFF;
+  box-shadow: 0 0 5px 0 rgba(0,0,0,0.10);
+  transition: box-shadow 500ms ease-in-out;
+}
+
+.demo-card-wide:hover{
+  /* Card Copy: */
+  box-shadow: 0 10px 20px 0 rgba(0,0,0,0.20);
+}
+
+.mdl-button--icon{
+  font-size: 14px;
+  color: black;
+}
+
+button{
+  background-color: #f3f3f3 !important;
 }
