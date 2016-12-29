@@ -49,20 +49,32 @@
   </head>
   <body class="mdl-demo mdl-color--grey-100 mdl-color-text--grey-700 mdl-base">
     <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
-      <header class="mdl-layout__header mdl-layout__header--scroll mdl-color--primary" >
 
-        <div id="glava">
-        <video id="cover" autoplay>
-          <source src="images/shrimps.mp4" type="video/mp4">
-          Your browser does not support HTML5 video.
-        </video>
-        </div>
+      <header>
 
 
-        <div class="mdl-layout__tab-bar mdl-js-ripple-effect mdl-color--primary-dark" class="main_wrapper" id="tabs">
-          <a href="#pon" class="mdl-layout__tab is-active">Danes</a>
-          <a href="#tor" class="mdl-layout__tab">Jutri</a>
-        </div>
+        <nav>
+          <ul>
+            <li><a>Za restavracije</a></li>
+            <li><a>Na zemljevidu</a></li>
+            <li class="right button"><a>Registracija</a></li>
+            <li class="right"><a>Prijavi se</a></li>
+          </ul>
+
+          <img src="images/logo.svg" />
+        </nav>
+
+          <video id="cover_video" autoplay loop>
+            <source src="images/cover.mp4" type="video/mp4">
+            Your browser does not support HTML5 video.
+          </video>
+          <div class="overlay"></div>
+
+          <div id="tabs">
+            <a href="#pon" class="mdl-layout__tab is-active">Danes</a>
+            <a href="#tor" class="mdl-layout__tab">Jutri</a>
+          </div>
+
       </header>
       <main class="mdl-layout__content">
         <div class="mdl-layout__tab-panel is-active" id="pon">
@@ -75,9 +87,70 @@
                     <h2>Dabuda</h2>
                     <hr></hr>
                   </div>
+                  <div class="meals">
+                    <div class="meal">
+                        <h5>Piščanec iz woka s sezamom</h5>
+                        <span>Stir-fried chicken with Sesame seeds</span>
+                    </div>
+                    <div class="meal">
+                      <h5>Ribji file v tamarind omaki</h5>
+                      <span>Fish fillet in Tamarind sauce </span>
+                    </div>
+                    <div class="meal">
+                      <h5>Tori solata s piščancem, arašidi, in kitajskim zeljem</h5>
+                      <span>Tori chicken salad with Curry dressing</span>
+                    </div>
+                  </div>
+                  <div class="mdl-card__menu">
+                    <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
+                      <span class="oi" data-glyph="map-marker"></span>
+                    </button>
+                    <button id="show-modal-example" class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
+                      <span class="oi" data-glyph="fullscreen-enter" title="box" aria-hidden="true"></span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="mdl-cell mdl-cell--6-col">
+                <div class="demo-card-wide mdl-card mdl-shadow--2dp">
+                  <div class="mdl-card__title">
+                    <h2>Eksperiment</h2>
+                    <hr></hr>
+                  </div>
+                  <div class="meals">
+                    <div class="meal">
+                      <h5>Piščanec iz woka s sezamom</h5>
+                      <span>Stir-fried chicken with Sesame seeds</span>
+                    </div>
+                    <div class="meal">
+                      <h5>Ribji file v tamarind omaki</h5>
+                      <span>Fish fillet in Tamarind sauce </span>
+                    </div>
+                    <div class="meal">
+                      <h5>Tori solata s piščancem, arašidi, in kitajskim zeljem</h5>
+                      <span>Tori chicken salad with Curry dressing</span>
+                    </div>
+                  </div>
+                  <div class="mdl-card__menu">
+                    <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
+                      <span class="oi" data-glyph="map-marker"></span>
+                    </button>
+                    <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
+                      <span class="oi" data-glyph="fullscreen-enter" title="box" aria-hidden="true"></span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <div class="mdl-cell mdl-cell--6-col">
+                <div class="demo-card-wide mdl-card mdl-shadow--2dp">
+                  <div class="mdl-card__title">
+                    <h2>Dabuda</h2>
+                    <hr></hr>
+                  </div>
                   <div class="meal">
-                      <h5>Ime jedi</h5>
-                      <span>Opis jedi</span>
+                    <h5>Ime jedi</h5>
+                    <span>Opis jedi</span>
                   </div>
                   <div class="mdl-card__menu">
                     <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
@@ -96,8 +169,49 @@
                     <hr />
                   </div>
                   <div class="meal">
-                      <h5>Ime jedi</h5>
-                      <span>Opis jedi</span>
+                    <h5>Ime jedi</h5>
+                    <span>Opis jedi</span>
+                  </div>
+                  <div class="mdl-card__menu">
+                    <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
+                      <span class="oi" data-glyph="map-marker"></span>
+                    </button>
+                    <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
+                      <span class="oi" data-glyph="fullscreen-enter" title="box" aria-hidden="true"></span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <div class="mdl-cell mdl-cell--6-col">
+                <div class="demo-card-wide mdl-card mdl-shadow--2dp">
+                  <div class="mdl-card__title">
+                    <h2>Dabuda</h2>
+                    <hr></hr>
+                  </div>
+                  <div class="meal">
+                    <h5>Ime jedi</h5>
+                    <span>Opis jedi</span>
+                  </div>
+                  <div class="mdl-card__menu">
+                    <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
+                      <span class="oi" data-glyph="map-marker"></span>
+                    </button>
+                    <button id="show-modal-example" class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
+                      <span class="oi" data-glyph="fullscreen-enter" title="box" aria-hidden="true"></span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="mdl-cell mdl-cell--6-col">
+                <div class="demo-card-wide mdl-card mdl-shadow--2dp">
+                  <div class="mdl-card__title">
+                    <h2>Da Bu Da</h2>
+                    <hr />
+                  </div>
+                  <div class="meal">
+                    <h5>Ime jedi</h5>
+                    <span>Opis jedi</span>
                   </div>
                   <div class="mdl-card__menu">
                     <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
@@ -154,7 +268,10 @@
     <!-- modals -->
     <script src="scripts/dialog-polyfill.js"></script>
 
-    <script src="https://storage.googleapis.com/code.getmdl.io/1.3.0/material.min.js"></script>
+    <!-- classie -->
+    <script src="scripts/classie.js"></script>
+
+    <!--<script src="https://storage.googleapis.com/code.getmdl.io/1.3.0/material.min.js"></script>-->
     <script src="scripts/main.js"></script>
     <!-- endbuild -->
 

@@ -1,39 +1,5 @@
+/* BASIC COMPONENTS */
 
-#tabs{
-  background-color: white !important;
-
-  a{
-    color: #f3f3f3;
-  }
-
-  .is-active{
-    color: black;
-  }
-
-}
-
-#cover{
-  width: 100%;
-  margin-top: -10%;
-}
-
-#glava{
-  height: 450px;
-  overflow: hidden;
-}
-
-.mdl-card{
-  width: 100%;
-}
-
-.main_wrapper{
-  width: 80%;
-  margin: 0 auto;;
-}
-
-.mdl-card__title h2{
-  text-align: center;
-}
 
 body{
   font-family: 'Source Code Pro', serif;
@@ -48,6 +14,149 @@ h2{
   font-family: 'Playfair Display', serif;
 }
 
+button{
+  background-color: #f3f3f3 !important;
+}
+
+
+
+
+/* *************** */
+
+
+
+header{
+
+  height: 550px;
+
+  #cover_video{
+    width: 100%;
+    margin-top: -10%;
+  }
+
+  .overlay{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-image: radial-gradient(circle at 50% 49%, rgba(255, 255, 255, 0.0), rgba(0, 0, 0, 0.59));
+    transition: background-color 0.3s ease-in-out;
+  }
+
+  nav{
+    position: absolute;
+    background-color: transparent;
+    width: 100%;
+    top: 200px;
+    z-index: 1000;
+
+    /* TRANSITIONS */
+
+    transition: background-color 0.4s ease-in-out;
+
+
+    ul{
+      padding: 0 50px;
+      li{
+        text-decoration: none;
+        list-style: none;
+        display: inline-block;
+        padding: 20px;
+        a{
+            font-family: SourceSansPro-Semibold;
+            font-size: 14px;
+            color: #FFFFFF;
+            letter-spacing: 1.1px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.50);
+            line-height: 100%;
+            vertical-align: middle;
+        }
+        a:hover{
+          color: rgba(255,255,255,0.80);
+          cursor: pointer;
+        }
+      }
+      li.right{
+        float: right;
+      }
+      li.button{
+        background: #F5D72A;
+        border-radius: 50px;
+        padding: 10px 25px;
+        margin-top: 10px;
+        a{
+          color: black;
+          text-shadow: 0 0 0 rgba(0,0,0,0);
+        }
+        transition: all 0.4s, color 0.1s;
+      }
+      li.button:hover{
+        transform: scale(1.1, 1.1);
+        a{
+          color:white;
+        }
+      }
+    }
+
+    img{
+      height: 160px;
+      width: 160px;
+      display: block;
+      margin: -120px auto;
+    }
+
+  }
+
+  #tabs{
+    position: absolute;
+    background-color: white;
+    width: 80%;
+    height: 100px;
+    margin: 0 auto;
+    bottom: -50px;
+
+    a{
+      color: #f3f3f3;
+    }
+
+    .is-active{
+      color: black;
+    }
+
+  }
+
+
+}
+
+header.smaller{
+  nav{
+    background-color: black;
+    position: fixed;
+    top:0;
+  }
+}
+
+.darken{
+  background-color: black;
+}
+
+
+/* **************************** Cards */
+
+.mdl-card{
+  width: 100%;
+}
+
+.main_wrapper{
+  width: 80%;
+  margin: 0 auto;;
+}
+
+.mdl-card__title h2{
+  text-align: center;
+}
+
 
 .demo-card-wide{
   border-radius: 0;
@@ -57,20 +166,35 @@ h2{
 }
 
 .demo-card-wide:hover{
-  /* Card Copy: */
   box-shadow: 0 10px 20px 0 rgba(0,0,0,0.20);
 }
 
 .mdl-button--icon{
   font-size: 14px;
   color: black;
+  height: 45px;
+  width: 45px;
 }
 
-button{
-  background-color: #f3f3f3 !important;
+.meals{
+  padding: 20px;
+  .meal{
+    h5{
+        font-family: SourceSansPro-Semibold;
+        font-size: 16px;
+        color: #000000;
+    }
+    span{
+      font-family: SourceSansPro-It;
+      font-size: 14px;
+      color: #8B8894;
+      line-height: 17px;
+    }
+
+  }
 }
 
-
+/* **************************** Restaurant deatils view */
 
 ::backdrop{
   background-color: rgba(255,255,255,0.97);
