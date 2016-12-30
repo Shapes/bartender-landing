@@ -30,20 +30,24 @@
 
     <!-- Color the status bar on mobile devices -->
     <meta name="theme-color" content="black">
-
     <link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.0.6/material.indigo-pink.min.css">
-
     <link href="open-iconic/font/css/open-iconic.css" rel="stylesheet">
-
     <link href="https://fonts.googleapis.com/css?family=Playfair+Display|Source+Sans+Pro" rel="stylesheet">
 
 
-
-    <!-- Your styles -->
-
+    <!-- Your styles, development -->
     <link rel="stylesheet/less" type="text/css" href="styles/styles.less" />
     <script src="http://cdnjs.cloudflare.com/ajax/libs/less.js/2.7.1/less.min.js"></script>
 
+
+
+    <!-- jQuery -->
+    <script src="scripts/jquery-3.1.1.min.js"></script>
+
+
+    <!-- brki -->
+    <script src="scripts/jquery.mustache.js"></script>
+    <script src="scripts/mustache.js"></script>
 
     <link rel="stylesheet" href="styles/main.css">
   </head>
@@ -88,19 +92,7 @@
                     <h2>Dabuda</h2>
                     <hr></hr>
                   </div>
-                  <div class="meals">
-                    <div class="meal">
-                        <h5>Piščanec iz woka s sezamom</h5>
-                        <span>Stir-fried chicken with Sesame seeds</span>
-                    </div>
-                    <div class="meal">
-                      <h5>Ribji file v tamarind omaki</h5>
-                      <span>Fish fillet in Tamarind sauce </span>
-                    </div>
-                    <div class="meal">
-                      <h5>Tori solata s piščancem, arašidi, in kitajskim zeljem</h5>
-                      <span>Tori chicken salad with Curry dressing</span>
-                    </div>
+                  <div class="meals" id="test-card">
                   </div>
                   <div class="mdl-card__menu">
                     <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
@@ -119,18 +111,6 @@
                     <hr></hr>
                   </div>
                   <div class="meals">
-                    <div class="meal">
-                      <h5>Piščanec iz woka s sezamom</h5>
-                      <span>Stir-fried chicken with Sesame seeds</span>
-                    </div>
-                    <div class="meal">
-                      <h5>Ribji file v tamarind omaki</h5>
-                      <span>Fish fillet in Tamarind sauce </span>
-                    </div>
-                    <div class="meal">
-                      <h5>Tori solata s piščancem, arašidi, in kitajskim zeljem</h5>
-                      <span>Tori chicken salad with Curry dressing</span>
-                    </div>
                   </div>
                   <div class="mdl-card__menu">
                     <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
@@ -146,12 +126,10 @@
               <div class="mdl-cell mdl-cell--6-col">
                 <div class="demo-card-wide mdl-card mdl-shadow--2dp">
                   <div class="mdl-card__title">
-                    <h2>Dabuda</h2>
+                    <h2>Gušterija</h2>
                     <hr></hr>
                   </div>
-                  <div class="meal">
-                    <h5>Ime jedi</h5>
-                    <span>Opis jedi</span>
+                  <div class="meals">
                   </div>
                   <div class="mdl-card__menu">
                     <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
@@ -166,12 +144,10 @@
               <div class="mdl-cell mdl-cell--6-col">
                 <div class="demo-card-wide mdl-card mdl-shadow--2dp">
                   <div class="mdl-card__title">
-                    <h2>Da Bu Da</h2>
+                    <h2>Druga violina</h2>
                     <hr />
                   </div>
-                  <div class="meal">
-                    <h5>Ime jedi</h5>
-                    <span>Opis jedi</span>
+                  <div class="meals">
                   </div>
                   <div class="mdl-card__menu">
                     <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
@@ -187,12 +163,10 @@
               <div class="mdl-cell mdl-cell--6-col">
                 <div class="demo-card-wide mdl-card mdl-shadow--2dp">
                   <div class="mdl-card__title">
-                    <h2>Dabuda</h2>
+                    <h2>OG Garden</h2>
                     <hr></hr>
                   </div>
-                  <div class="meal">
-                    <h5>Ime jedi</h5>
-                    <span>Opis jedi</span>
+                  <div class="meals">
                   </div>
                   <div class="mdl-card__menu">
                     <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
@@ -207,12 +181,10 @@
               <div class="mdl-cell mdl-cell--6-col">
                 <div class="demo-card-wide mdl-card mdl-shadow--2dp">
                   <div class="mdl-card__title">
-                    <h2>Da Bu Da</h2>
+                    <h2>Joe Penas</h2>
                     <hr />
                   </div>
-                  <div class="meal">
-                    <h5>Ime jedi</h5>
-                    <span>Opis jedi</span>
+                  <div class="meals">
                   </div>
                   <div class="mdl-card__menu">
                     <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
@@ -264,8 +236,6 @@
       </main>
     </div>
 
-    <!-- jQuery -->
-    <script src="scripts/jquery-3.1.1.min.js"></script>
 
     <!-- modals -->
     <script src="scripts/dialog-polyfill.js"></script>
@@ -275,7 +245,6 @@
 
     <!--<script src="https://storage.googleapis.com/code.getmdl.io/1.3.0/material.min.js"></script>-->
     <script src="scripts/main.js"></script>
-    <!-- endbuild -->
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
     <script>

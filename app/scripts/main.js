@@ -97,9 +97,9 @@
 
 
 /* header */
-
-
 function init() {
+
+
   window.addEventListener('scroll', function(e){
     var distanceY = window.pageYOffset || document.documentElement.scrollTop,
       shrinkOn = 150,
@@ -115,3 +115,33 @@ function init() {
   });
 }
 window.onload = init();
+
+
+
+/* parse data  */
+var MealsFactory = {
+  getMeal: function(data, output) {
+    $.ajax({
+      url: 'http://192.168.1.41:1234/api' + '/meal ',
+      method: 'GET',
+      data: {},
+      success: function(response) {
+        output(response);
+      }
+    })
+  }
+};
+
+var mealsForToday = {};
+MealsFactory.getMeal("", function(response){
+
+  mealsForToday = response.meals;
+
+  $.Mustache.load('templates/card.html')
+    .done(function () {
+      $('#test-card').mustache('simple-hello', mealsForToday[0]);
+      $('#test-card').mustache('simple-hello', mealsForToday[1]);
+      $('#test-card').mustache('simple-hello', mealsForToday[2]);
+    });
+
+});
