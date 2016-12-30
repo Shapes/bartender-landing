@@ -57,7 +57,7 @@ header{
 
 
     ul{
-      padding: 0 50px;
+      padding: 0 30px;
       li{
         text-decoration: none;
         list-style: none;
@@ -93,9 +93,6 @@ header{
       }
       li.button:hover{
         transform: scale(1.1, 1.1);
-        a{
-          color:white;
-        }
       }
     }
 
@@ -104,6 +101,8 @@ header{
       width: 160px;
       display: block;
       margin: -120px auto;
+
+      transition: width 0.4s ease-in-out;
     }
 
   }
@@ -134,6 +133,11 @@ header.smaller{
     background-color: black;
     position: fixed;
     top:0;
+
+    img{
+      height: 120px;
+      width: 120px;
+    }
   }
 }
 
@@ -183,6 +187,7 @@ header.smaller{
         font-family: SourceSansPro-Semibold;
         font-size: 16px;
         color: #000000;
+        margin-bottom: 5px;
     }
     span{
       font-family: SourceSansPro-It;
