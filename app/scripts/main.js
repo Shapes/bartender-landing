@@ -113,6 +113,20 @@ function init() {
       }
     }
   });
+
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(showPosition);
+    } else {
+      console.log("Geolocation is not supported by this browser.");
+    }
+
+    // else 1 ask use for location
+    // else 2 default to city center, Ljubljana
+    //46.051343, 14.506293
+    function showPosition(position) {
+      console.log("Latitude: " + position.coords.latitude +
+        " Longitude: " + position.coords.longitude);
+    }
 }
 window.onload = init();
 
