@@ -114,7 +114,8 @@ var RestaurantFactory = {
     $.ajax({
       url: 'http://localhost:1234/api' + '/restaurant ',
       method: 'GET',
-      data: {},
+      data: {lat: data.location.lat,
+            lng: data.location.lng},
       success: function(response) {
         output(response);
       }
@@ -173,8 +174,13 @@ function init() {
   // else 2 ask use for location
   //46.051343, 14.506293
   function showOnMap(position) {
+    data.location.lat = position.coords.latitude;
+    data.location.lng = position.coords.longitude;
+
+    /*
     console.log("User: " + "lat: " + position.coords.latitude +
       " lng: " + position.coords.longitude);
+    */
 
     userLocation = new google.maps.LatLng(position.coords.latitude,  position.coords.longitude);
     map.setCenter(userLocation);
@@ -208,9 +214,7 @@ function init() {
         })(marker, i));
      }
 
-    data.location.lat = position.coords.latitude;
-    data.location.lng = position.coords.longitude;
-    console.log(data);
+
 
     RestaurantFactory.getRestaurants(data, function(response){
       Restaurants = response;
