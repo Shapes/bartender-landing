@@ -112,18 +112,18 @@ var map,
 var RestaurantFactory = {
   getRestaurants: function(data, output) {
     $.ajax({
-      url: 'http://localhost:1234/api' + '/restaurant ',
+      url: 'http://localhost:1234/api' + '/restaurant',
       method: 'GET',
-      data: {lat: data.location.lat,
-            lng: data.location.lng},
+      data: {
+        lat: data.location.lat,
+        lng: data.location.lng
+      },
       success: function(response) {
         output(response);
       }
     })
   }
 };
-
-
 
 
 function initMap() {
@@ -139,7 +139,7 @@ function initMap() {
 function init() {
 
   /* Get restaurants */
-  RestaurantFactory.getRestaurants("", function(response){
+  RestaurantFactory.getRestaurants(data, function(response){
     Restaurants = response;
 
     $.Mustache.load('templates/restaurants.html')
@@ -221,16 +221,12 @@ function init() {
 
       $.Mustache.load('templates/restaurants.html')
         .done(function () {
+          $('#test-restaurants').empty();
           $('#test-restaurants').mustache('restavracije', Restaurants);
         });
 
     });
   }
 }
-
-
-
-
-
 
 window.onload = init();
