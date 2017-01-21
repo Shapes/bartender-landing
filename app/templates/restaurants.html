@@ -1,0 +1,23 @@
+<script id="restavracije" type="text/html">
+{{ loop_restaurants }}
+<div class="mdl-cell mdl-cell--6-col">
+  <div class="demo-card-wide mdl-card mdl-shadow--2dp">
+    <div class="mdl-card__title">
+      <h2>{{ name }}</h2>
+      <hr />
+    </div>
+    <div class="meals" id="test-card">
+
+    </div>
+    <div class="mdl-card__menu">
+      <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
+        <span class="oi" data-glyph="map-marker"></span>
+      </button>
+      <button id="show-modal-example" class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
+        <span class="oi" data-glyph="fullscreen-enter" title="box" aria-hidden="true"></span>
+      </button>
+    </div>
+  </div>
+</div>
+{{ end_loop_restaurants }}
+</script>

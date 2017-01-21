@@ -76,7 +76,7 @@
 })();
 
 
-/* dialog */
+/* dialog
 (function() {
   'use strict';
   var dialog = document.querySelector('#modal-example');
@@ -94,12 +94,61 @@
   showButton.addEventListener('click', showClickHandler);
   closeButton.addEventListener('click', closeClickHandler);
 }());
+*/
+
+var map,
+    defaultPosition,
+    Restaurants = {},
+    userLocation
+    data = {
+      location:{
+        lat:"",
+        lng:""
+      }
+    };
 
 
-/* header */
+/* Services */
+var RestaurantFactory = {
+  getRestaurants: function(data, output) {
+    $.ajax({
+      url: 'http://localhost:1234/api' + '/restaurant ',
+      method: 'GET',
+      data: {},
+      success: function(response) {
+        output(response);
+      }
+    })
+  }
+};
+
+
+
+
+function initMap() {
+  defaultPosition = new google.maps.LatLng(46.051343, 14.506293);
+  map = new google.maps.Map(document.getElementById('map'), {
+    zoom: 16,
+    center: defaultPosition,
+    mapTypeId: 'roadmap'
+  });
+
+}
+
 function init() {
 
+  /* Get restaurants */
+  RestaurantFactory.getRestaurants("", function(response){
+    Restaurants = response;
 
+    $.Mustache.load('templates/restaurants.html')
+      .done(function () {
+        $('#test-restaurants').mustache('restavracije', Restaurants);
+      });
+
+  });
+
+  /* scoll header */
   window.addEventListener('scroll', function(e){
     var distanceY = window.pageYOffset || document.documentElement.scrollTop,
       shrinkOn = 150,
@@ -114,48 +163,70 @@ function init() {
     }
   });
 
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(showPosition);
-    } else {
-      console.log("Geolocation is not supported by this browser.");
-    }
-
-    // else 1 ask use for location
-    // else 2 default to city center, Ljubljana
-    //46.051343, 14.506293
-    function showPosition(position) {
-      console.log("Latitude: " + position.coords.latitude +
-        " Longitude: " + position.coords.longitude);
-    }
-}
-window.onload = init();
-
-
-
-/* parse data  */
-var MealsFactory = {
-  getMeal: function(data, output) {
-    $.ajax({
-      url: 'http://192.168.1.41:1234/api' + '/meal ',
-      method: 'GET',
-      data: {},
-      success: function(response) {
-        output(response);
-      }
-    })
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(showOnMap);
+  } else {
+    console.log("Geolocation is not supported by this browser.");
   }
-};
 
-var mealsForToday = {};
-MealsFactory.getMeal("", function(response){
+  // else 1 default to city center, Ljubljana
+  // else 2 ask use for location
+  //46.051343, 14.506293
+  function showOnMap(position) {
+    console.log("User: " + "lat: " + position.coords.latitude +
+      " lng: " + position.coords.longitude);
 
-  mealsForToday = response.meals;
+    userLocation = new google.maps.LatLng(position.coords.latitude,  position.coords.longitude);
+    map.setCenter(userLocation);
 
-  $.Mustache.load('templates/card.html')
-    .done(function () {
-      $('#test-card').mustache('simple-hello', mealsForToday[0]);
-      $('#test-card').mustache('simple-hello', mealsForToday[1]);
-      $('#test-card').mustache('simple-hello', mealsForToday[2]);
+    var marker = new google.maps.Marker({
+      position: userLocation,
+      map: map,
+      icon: '../app/images/me-marker.png'
     });
 
-});
+
+    // add markers
+    var infowindow = new google.maps.InfoWindow(),
+        marker,
+        i;
+
+    for (i = 0; i < Restaurants.length; i++) {
+
+       marker = new google.maps.Marker({
+         position: new google.maps.LatLng(Restaurants[i].location.lat, Restaurants[i].location.lng),
+         map: map,
+         icon: '../app/images/map-marker.png'
+       });
+
+       google.maps.event.addListener(marker, 'click', (
+         function(marker, i) {
+           return function() {
+             infowindow.setContent(Restaurants[i].name);
+             infowindow.open(map, marker);
+           }
+        })(marker, i));
+     }
+
+    data.location.lat = position.coords.latitude;
+    data.location.lng = position.coords.longitude;
+    console.log(data);
+
+    RestaurantFactory.getRestaurants(data, function(response){
+      Restaurants = response;
+
+      $.Mustache.load('templates/restaurants.html')
+        .done(function () {
+          $('#test-restaurants').mustache('restavracije', Restaurants);
+        });
+
+    });
+  }
+}
+
+
+
+
+
+
+window.onload = init();
